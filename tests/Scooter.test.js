@@ -13,8 +13,16 @@ describe('scooter object', () => {
 //Method tests
 describe('scooter methods', () => {
   // tests here!
-
+  const Scooter = new Scooter('Sir', 25)
   //rent method
+  test('Test if scooter less than 20% charged and not broken', () => {
+    expect(Scooter.charge < 20 && isBroken == False).toBe('scooter needs to charge')
+  })
+
+  test('Test if scooter less than 20% charged and is broken', () => {
+    expect(Scooter.charge < 20 && isBroken == True).toBe('scooter needs repair')
+  })
+
 
   //dock method
 
