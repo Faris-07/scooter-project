@@ -1,10 +1,21 @@
 class User {
-  constructor (username, password, age, loggedIn) {
+  constructor (username, password, age) {
     this.username = username;
     this.password = password;
     this.age = age;
-    this.loggedIn = loggedIn;
   }
-}
+
+  login(password) {
+    if (password == True) {
+      loggedIn = True;
+    } else () => {
+      throw new Error("incorrect password")
+    };
+  };
+
+  logout() {
+    loggedIn = False;
+  }
+};
 
 module.exports = User
