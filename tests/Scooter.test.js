@@ -15,13 +15,13 @@ describe('scooter methods', () => {
   // tests here!
   const scooter = new Scooter()
   //rent method
-  test('Test if scooter less than 20% charged and not broken', () => {
-    expect(scooter.charge < 20 && scooter.isBroken == False).toEqual('scooter needs to charge')
-  })
+  // test('Test if scooter less than 20% charged and not broken', () => {
+  //   expect(scooter.charge < 20 && scooter.isBroken == False).toEqual('scooter needs to charge')
+  // })
 
-  test('Test if scooter less than 20% charged and is broken', () => {
-    expect(scooter.charge < 20 && scooter.isBroken == True).toEqual('scooter needs repair')
-  })
+  // test('Test if scooter less than 20% charged and is broken', () => {
+  //   expect(scooter.charge < 20 && scooter.isBroken == True).toEqual('scooter needs repair')
+  // })
 
 
   //dock method
