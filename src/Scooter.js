@@ -1,26 +1,50 @@
 class Scooter{
-  constructor (station, user, serial, nextSerial, charge, isBroken) {
+  constructor (station) {
     this.station = station;
-    this.user = user;
-    this.serial = serial;
-    this.nextSerial = nextSerial;
-    this.charge = charge;
-    this.isBroken = isBroken;
-
+    this.user = null;
+    this.serial = 1;
+    this.nextSerial = 2;
+    this.charge = 50;
+    this.isBroken = false;
   }
 
-  rent() {
-    if (Scooter.charge < 20 && Scooter.isBroken == False) {
-      return "scooter needs to charge";
-    } else if (Scooter.charge < 20 && Scooter.isBroken == True) {
-      return "scooter needs repair";
-    };
+  rent(user) {
+    if (this.charge < 20) {
+      throw new Error('Scooter needs charging!');
+    } else if (this.isBroken) {
+      throw new Error('Scooter is broken!');
+    }
+    this.user = user;
+    this.station = null;
   };
 
   dock(station) {
-    
+    this.station = station;
+    this.user = null;
+  }
+
+  async recharge(){
+    console.log(`Starting charge... [${this.charge}%]`);
+    while(this.charge < 100){
+      await new Promise(resolve => setTimeout(resolve, 200)); 
+      this.charge = this.charge + 10;
+      if(this.charge > 100) {this.charge = 100;}
+      console.log(`Charging... [${this.charge}%]`)
+    }
+    console.log('Charging complete!');   
+  }
+
+  async requestRepair(){
+    console.log('Requesting repair...')
+    for(let i = 5; i >= 0; i--){
+      console.log(`Repairs commencing in ${i}s...`)
+      await new Promise(resolve => setTimeout(resolve, 1000)); 
+    }
+    console.log('Magic happening...')
+    this.isBroken = false;
+    console.log('Repairs complete!')
+    await new Promise(resolve => setTimeout(resolve, 100)); 
   }
 };
-
 
 module.exports = Scooter;
