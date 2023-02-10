@@ -38,6 +38,7 @@ describe('User Class Tests', () => {
     test('Tests if the password is correct and logs in the user', () => {
       user.login('Password');
       expect(user.loggedIn).toBe(true);
+<<<<<<< HEAD
     });
     test('Tests if the password is incorrect then throws error', () => {
       expect(() => {
@@ -45,5 +46,9 @@ describe('User Class Tests', () => {
       }).toThrow(new Error("Incorrect password"));
   });        
   });
+=======
+    });        
+  })
+>>>>>>> 599df34fa970cee3865ab68140c88cc96beab889
 });  
 // test logout
