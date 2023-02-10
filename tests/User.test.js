@@ -32,7 +32,13 @@ describe('User Class Tests', () => {
     expect(user.loggedIn).toBe(false);
   });
 
-// test login
 
+// test login
+  describe('Tests Login Functionality', () => {
+    test('Tests if the password is correct and logs in the user', () => {
+      user.login('Password');
+      expect(user.loggedIn).toBe(true);
+    });        
+  })
+});  
 // test logout
-});
