@@ -34,21 +34,23 @@ describe('User Class Tests', () => {
 
 
 // test login
-  describe('Tests Login Functionality', () => {
-    test('Tests if the password is correct and logs in the user', () => {
-      user.login('Password');
-      expect(user.loggedIn).toBe(true);
-<<<<<<< HEAD
-    });
-    test('Tests if the password is incorrect then throws error', () => {
-      expect(() => {
-        user.login('WrongPassword');
-      }).toThrow(new Error("Incorrect password"));
-  });        
+describe('Tests Login Functionality', () => {
+  test('Tests if the password is correct and logs in the user', () => {
+    user.login('Password');
+    expect(user.loggedIn).toBe(true);
   });
-=======
-    });        
-  })
->>>>>>> 599df34fa970cee3865ab68140c88cc96beab889
-});  
+  test('Tests if the password is incorrect then throws error', () => {
+    expect(() => {
+      user.login('WrongPassword');
+    }).toThrow(new Error("Incorrect password"));
+  });        
+});
+ 
 // test logout
+describe('Tests Logout Functionality', () => {
+  test('Tests if the logout method sets loggedIn status back to false', () => {
+    user.logout();
+    expect(user.loggedIn).toBe(false);
+  });
+});
+});
